@@ -17,7 +17,7 @@
 *.tmp
 
 # IntelliJ IDEA files
-idea/
+.idea/
 
 # Eclipse files
 .classpath
