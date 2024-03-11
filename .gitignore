@@ -41,8 +41,3 @@ logs/
 # OS-specific files
 .DS_Store
 Thumbs.db
-
-# Package Files
-*.war
-*.ear
-*.jar
