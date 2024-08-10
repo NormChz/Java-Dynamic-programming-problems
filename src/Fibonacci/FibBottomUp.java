@@ -1,28 +1,20 @@
 package Fibonacci;
 
-import java.util.HashMap;
-
-public class FibBottomUp { // using memoization
+public class FibBottomUp { // using tabulation
 
     public int fibSum(int target) {
-        HashMap<Integer, Integer> memo = new HashMap<>();
-        return _fibSum(target, memo);
-    }
+        int[] table = new int[target+1];
+        table[0] = 0;
+        table[1] = 1;
+        for (int i = 2; i <= target; i++) {
+            table[i] = table[i - 1] + table[i - 2];
+        }
 
-    private int _fibSum(int target, HashMap<Integer, Integer> memo) {
-        if (memo.containsKey(target)) {
-            return memo.get(target);
-        }
-        if (target == 1 || target == 0) {
-            return target;
-        }
-        int result = _fibSum(target - 1, memo) + _fibSum(target - 2, memo);
-        memo.put(target, result);
-        return result;
+        return table[target];
     }
 
     public static void main(String[] args) {
         FibBottomUp fib = new FibBottomUp();
-        System.out.println(fib.fibSum(6));
+        System.out.println(fib.fibSum(5));
     }
 }
